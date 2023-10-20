@@ -23,6 +23,7 @@ export default function Home() {
       windth: Number(size),
       margin: Number(margin),
       version: Number(version),
+      format: format,
     };
 
     QRCodeLink.toDataURL(url, config, (err, url) => {
@@ -44,7 +45,7 @@ export default function Home() {
         <hr className='mt-5' style={{ opacity: '0%' }}/>
 
         <div>
-          <QRCode value={link}/>
+          <QRCode value={link} style={{ height: "auto", maxWidth: "100%", width: "100%" }} size={256} viewBox={`0 0 256 256`}/>
         </div>
 
         <hr className='mt-5 mb-5' />
@@ -81,7 +82,7 @@ export default function Home() {
 
           <div className="col-12 col-md-3 text-secondary">
             <label htmlFor="format">Format:</label>
-            <select className="form-select" aria-label="format" id="format" value={format} onChange={(e) => changeFormat(e.target.value)}>
+            <select className="form-select" aria-label="format" id="format" value={format} onChange={(e) => changeFormat(e.target.value)} disabled>
               <option value="image/png">.png</option>
               <option value="image/jpeg">.jpeg</option>
               <option value="image/webp">.webp</option>
