@@ -8,28 +8,29 @@ import QRCode from 'react-qr-code';
 import QRCodeLink from 'qrcode';
 
 export default function Home() {
-  const [size, changeSize] = useState(800);
   const [link, changeLink] = useState('');
+  const [scale, changeScale] = useState(4);
+  const [size, changeSize] = useState(600);
+  const [margin, changeMargin] = useState(4);
   const [name, changeName] = useState('qrcode');
-  const [margin, changeMargin] = useState(2);
   const [qrcodeLink, setQrcodeLink] = useState('');
 
-  function generateLink() {
+  function generateLink(url) {
     const config = {
-      windth: size,
-      margin: margin
-    }
+      scale: Number(scale),
+      windth: Number(size),
+      margin: Number(margin),
+    };
 
-    QRCodeLink.toDataURL(link, config, (err, url) => {
+    QRCodeLink.toDataURL(url, config, (err, url) => {
       if(err) console.error(err);
       setQrcodeLink(url)
     });
   }
 
   useEffect(() => {
-    generateLink()
-    console.log(size);
-  }, [size, link, name, margin]);
+    generateLink(link);
+  }, [size, link, name, margin, scale]);
 
 
 
@@ -54,6 +55,13 @@ export default function Home() {
           <div className="col-12 col-md-3 text-secondary">
             <label htmlFor="margin">Margin(px):</label>
             <input  className="form-control" type="number" id='margin' value={margin} onChange={(e) => changeMargin(e.target.value)}/>
+          </div>
+        </div>
+
+        <div className='row container justify-content-center p-2'>
+          <div className="col-12 col-md-6 text-secondary">
+            <label htmlFor="scale">Scale:</label>
+            <input  className="form-control" type="number" id='scale' value={scale} onChange={(e) => changeScale(e.target.value)}/>
           </div>
         </div>
 
