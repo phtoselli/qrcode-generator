@@ -45,7 +45,7 @@ export default function Home() {
         <hr className='mt-5' style={{ opacity: '0%' }}/>
 
         <div>
-          <QRCode value={link} style={{ height: "auto", maxWidth: "100%", width: "100%" }} size={256} viewBox={`0 0 256 256`}/>
+          <QRCode value={link}/>
         </div>
 
         <hr className='mt-5 mb-5' />
@@ -53,26 +53,26 @@ export default function Home() {
         <div className='row container justify-content-center p-2'>
           <div className="col-12 col-md-3 text-secondary">
             <label htmlFor="size">Size(px):</label>
-            <input  className="form-control" type="number" id='size' value={size} onChange={(e) => changeSize(e.target.value)} autoComplete="off"/>
+            <input  className="form-control" type="number" id='size' value={size} onChange={(e) => changeSize(e.target.value)}/>
           </div>
 
           <div className="col-12 col-md-3 text-secondary">
             <label htmlFor="margin">Margin(px):</label>
-            <input  className="form-control" type="number" id='margin' value={margin} onChange={(e) => changeMargin(e.target.value)} autoComplete="off"/>
+            <input  className="form-control" type="number" id='margin' value={margin} onChange={(e) => changeMargin(e.target.value)}/>
           </div>
         </div>
 
         <div className='row container justify-content-center p-2'>
           <div className="col-12 col-md-6 text-secondary">
             <label htmlFor="scale">Scale:</label>
-            <input  className="form-control" type="number" id='scale' value={scale} onChange={(e) => changeScale(e.target.value)} autoComplete="off"/>
+            <input  className="form-control" type="number" id='scale' value={scale} onChange={(e) => changeScale(e.target.value)}/>
           </div>
         </div>
 
         <div className='row container justify-content-center p-2'>
           <div className="col-12 col-md-3 text-secondary">
               <label htmlFor="version">Version:</label>
-              <select className="form-select" aria-label="version" id='version' value={version} onChange={(e) => changeVersion(e.target.value)} autoComplete="off">
+              <select className="form-select" aria-label="version" id='version' value={version} onChange={(e) => changeVersion(e.target.value)} disabled>
                 <option value={1}>1</option>
                 <option value={2}>2</option>
                 <option value={3}>3</option>
@@ -93,14 +93,14 @@ export default function Home() {
         <div className='row container justify-content-center p-2'>
           <div className="col-12 col-md-6 text-secondary">
             <label htmlFor="name">File name:</label>
-            <input className="form-control" type="text" id='name' value={name} onChange={(e) => changeName(e.target.value)} autoComplete="off"/>
+            <input className="form-control" type="text" id='name' value={name} onChange={(e) => changeName(e.target.value)}/>
           </div>
         </div>
 
         <div className='row container justify-content-center p-2'>
           <div className="col-12 col-md-6 text-secondary">
             <label htmlFor="link">QRCode link:</label>
-            <input className="form-control" type="text" id='link' value={link} onChange={(e) => changeLink(e.target.value)} autoComplete="off"/>
+            <input className="form-control" type="text" id='link' value={link} onChange={(e) => changeLink(e.target.value)}/>
           </div>
         </div>
 
