@@ -15,7 +15,7 @@
 
 ## App deploy
 
-You can access app [here](https://qrcode-generator-amber.vercel.app/).
+You can access app [here](https://phtoselli-qrcode-generator.vercel.app/).
 
 ## Author
 
